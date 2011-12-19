@@ -17,7 +17,7 @@
   			<tr>
   				<td>${game.name}</td>
   				<td>${game.description}</td>
-  				<td>${game.rate}</td>
+  				<td><g:rate rate="${game.rate}"/></td>
   			</tr>
   		</g:each>
   	</table>

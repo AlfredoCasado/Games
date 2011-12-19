@@ -19,6 +19,25 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+		
+		<sec:ifNotLoggedIn>
+			<g:link controller="login">login</g:link>
+		</sec:ifNotLoggedIn>
+		
+		<sec:ifLoggedIn>
+			hola: <sec:username/>
+			<g:link controller="logout">logout</g:link>
+			<g:link controller="newGame">nuevo Juego</g:link>
+		</sec:ifLoggedIn>
+		
+		<sec:access expression="isRememberMe()">
+			autenticacion recordada por cookie
+		</sec:access>
+		
+		<sec:access expression="isFullyAuthenticated()">
+			autenticado completo
+		</sec:access>
+		
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
